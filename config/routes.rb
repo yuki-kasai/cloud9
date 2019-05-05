@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   # 通常の指定
   #   get 'posts/new', to:'posts#new', as: :new_post
 
-  get 'users/show', to: 'users#show', as: :profile
-
   get '/profile/edit', to: 'users#edit', as: :profile_edit
+
+  post '/profile/edit', to: 'users#update'
+
+  get '/profile/(:id)', to: 'users#show', as: :profile
 
   get '/follower_list/(:id)', to: 'users#follower_list', as: :follower_list
 

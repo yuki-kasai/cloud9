@@ -37,7 +37,20 @@ class PostsController < ApplicationController
       redirect_to(new_post_path) && return
     end
   end
-
+  
+  # 投稿削除
+  def destroy
+    @post = Post.find(params[:id])
+    
+      if @post.destroy
+        # 成功
+        flash[:success] = '投稿削除しました'
+      else
+        # 失敗
+        flash[:danger] = '投稿削除に失敗しました'
+      end
+      
+  end
   private
 
   # mergeで画像と説明文以外にidも必要なので追加するメソッド

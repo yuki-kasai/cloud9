@@ -1,0 +1,716 @@
+/* line 2, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+body.logined {
+  background-color: #fafafa;
+  padding-top: 100px;
+}
+
+/* line 8, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.global_header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 80px;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  z-index: 100;
+  opacity: 0.95;
+}
+/* line 21, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.global_header > * {
+  line-height: 80px;
+  cursor: pointer;
+}
+/* line 25, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.global_header .icon {
+  width: 80px;
+}
+/* line 27, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.global_header .icon i {
+  font-size: 30px;
+  color: #777;
+  line-height: 80px;
+}
+/* line 33, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.global_header a {
+  text-decoration: none;
+}
+/* line 36, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.global_header .logo {
+  width: 200px;
+  font-size: 32px;
+  text-align: left;
+  margin-bottom: 20px;
+  font-family: cursive;
+  color: #777;
+}
+/* line 44, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.global_header .search {
+  width: 310px;
+  min-width: 125px;
+}
+/* line 47, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.global_header .search input[type="text"] {
+  border: solid 1px #dbdbdb;
+  border-radius: 3px;
+  color: #262626;
+  font-size: 14px;
+  outline: none;
+  padding: 3px 10px 3px 10px;
+  background-color: #eee;
+  height: 30px;
+  display: inline-block;
+  width: 100%;
+}
+/* line 60, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.global_header .menu {
+  flex: 5;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 5px;
+  margin: 0;
+}
+/* line 66, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.global_header .menu a {
+  display: block;
+  padding: 0 20px;
+}
+/* line 70, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.global_header .menu i {
+  font-size: 28px;
+  color: #ccc;
+}
+/* line 73, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.global_header .menu i:hover {
+  color: #bbb;
+}
+
+/* line 81, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* line 87, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.alert {
+  position: fixed;
+  background-color: #fff;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 40px;
+  text-align: center;
+  z-index: 1000;
+  line-height: 40px;
+}
+/* line 97, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.alert-success, .alert-notice {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+/* line 102, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+/* line 107, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+/* line 112, /home/ubuntu/workspace/photo/app/assets/stylesheets/layout.scss */
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+/* line 5, /home/ubuntu/workspace/photo/app/assets/stylesheets/posts.scss */
+.new_post_wrap {
+  width: 80%;
+  background-color: white;
+  border: 2px solid #eee;
+  height: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+/* line 12, /home/ubuntu/workspace/photo/app/assets/stylesheets/posts.scss */
+.new_post_wrap h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+/* line 17, /home/ubuntu/workspace/photo/app/assets/stylesheets/posts.scss */
+.new_post_wrap textarea {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  resize: none;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 15px;
+}
+/* line 27, /home/ubuntu/workspace/photo/app/assets/stylesheets/posts.scss */
+.new_post_wrap .file_wrap {
+  margin-bottom: 10px;
+}
+/* line 31, /home/ubuntu/workspace/photo/app/assets/stylesheets/posts.scss */
+.new_post_wrap .textarea_wrap {
+  border: 1px solid #eee;
+}
+/* line 35, /home/ubuntu/workspace/photo/app/assets/stylesheets/posts.scss */
+.new_post_wrap .btn_wrap {
+  text-align: center;
+}
+/* line 37, /home/ubuntu/workspace/photo/app/assets/stylesheets/posts.scss */
+.new_post_wrap .btn_wrap input[type="submit"] {
+  background-color: #ccc;
+  display: block;
+  color: white;
+  border: 1px solid #bfbfbf;
+  border-radius: 3px;
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+/* line 48, /home/ubuntu/workspace/photo/app/assets/stylesheets/posts.scss */
+.new_post_wrap .btn_wrap input[type="submit"]:hover {
+  background-color: #c4c4c4;
+}
+/* http://meyerweb.com/eric/tools/css/reset/
+  v2.0 | 20110126
+  License: none (public domain)
+*/
+/* line 7, /home/ubuntu/workspace/photo/app/assets/stylesheets/reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 28, /home/ubuntu/workspace/photo/app/assets/stylesheets/reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 32, /home/ubuntu/workspace/photo/app/assets/stylesheets/reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 35, /home/ubuntu/workspace/photo/app/assets/stylesheets/reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 38, /home/ubuntu/workspace/photo/app/assets/stylesheets/reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 41, /home/ubuntu/workspace/photo/app/assets/stylesheets/reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 46, /home/ubuntu/workspace/photo/app/assets/stylesheets/reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* line 2, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top {
+  min-height: 1000px;
+  margin-top: 30px;
+}
+/* line 7, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts {
+  padding: 0;
+  margin: 0 auto;
+  width: 600px;
+}
+/* line 11, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts > li {
+  background-color: white;
+  border: 1px solid #e1e1e1;
+  margin-bottom: 50px;
+}
+/* line 16, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .user {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  padding-left: 50px;
+}
+/* line 21, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .user a {
+  color: gray;
+  text-decoration: none;
+  display: block;
+}
+/* line 26, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .user p {
+  display: inline-block;
+}
+/* line 29, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .user .image {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+/* line 38, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .image_wrap {
+  text-align: center;
+}
+/* line 40, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .image_wrap img {
+  max-width: 100%;
+  height: auto;
+}
+/* line 45, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .info {
+  padding: 0 16px;
+}
+/* line 48, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .action {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+/* line 51, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .action i {
+  font-size: 22px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+/* line 55, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .action i.active {
+  color: #F94653;
+}
+/* line 59, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .action a, .top .posts .action label {
+  text-decoration: none;
+  color: #2A2A2A;
+}
+/* line 64, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .like {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/* line 69, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .comment {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+/* line 72, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .comment li {
+  margin-bottom: 10px;
+}
+/* line 75, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .comment .user_name {
+  font-weight: bold;
+}
+/* line 78, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .comment .text_wrap {
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  padding-right: 30px;
+}
+/* line 83, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .comment .text_wrap .field {
+  position: relative;
+}
+/* line 86, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .comment .text_wrap input[type="text"] {
+  border: 1px solid #eee;
+  width: 100%;
+  height: 30px;
+  font-size: 14px;
+  outline: 0;
+}
+/* line 93, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .posts .comment .text_wrap input[type="submit"] {
+  position: absolute;
+  right: -5px;
+  border: 1px solid #eee;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  width: 35px;
+  background-color: white;
+}
+/* line 107, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .recommend {
+  width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+}
+/* line 112, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .recommend h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+/* line 116, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .recommend ul {
+  padding: 10px;
+  display: flex;
+}
+/* line 119, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .recommend ul li {
+  flex: 1;
+  max-width: 33.33%;
+  margin: 10px;
+  padding: 10px;
+}
+/* line 124, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .recommend ul li a {
+  text-align: center;
+  display: block;
+  padding: 20px;
+  border: 1px solid #e6e6e6;
+  color: inherit;
+  text-decoration: none;
+}
+/* line 132, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .recommend ul li img {
+  max-width: 100%;
+  border-radius: 50%;
+  width: 80px;
+  margin-bottom: 20px;
+}
+/* line 138, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .recommend ul li .button {
+  background-color: #eee;
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 12px;
+  border: 1px solid #e1e1e1;
+}
+/* line 144, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.top .recommend ul li .button:hover {
+  background-color: #e9e9e9;
+}
+
+/* line 155, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user h1 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+/* line 160, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .profile {
+  padding-top: 60px;
+  padding: 60px 40px 40px;
+  display: flex;
+}
+/* line 164, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .profile .image {
+  width: 200px;
+  margin-right: 50px;
+}
+/* line 167, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .profile .image > div {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+/* line 175, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .info {
+  flex: 1;
+}
+/* line 177, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .info .status {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+}
+/* line 181, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .info .status p {
+  flex: 1;
+}
+/* line 184, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .info .status a {
+  color: inherit;
+  text-decoration: none;
+}
+/* line 187, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .info .status a:hover {
+  text-decoration: underline;
+}
+/* line 192, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .info .name {
+  display: flex;
+}
+/* line 195, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .info .name .actions a {
+  color: #676767;
+  border: 1px solid #eee;
+  padding: 8px 12px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+/* line 206, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .info h1 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 200;
+  margin-right: 30px;
+}
+/* line 214, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .posts {
+  margin-top: 50px;
+}
+/* line 216, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .posts ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* line 219, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .posts ul li {
+  width: calc(33.33% - 20px);
+  position: relative;
+  margin: 20px 10px;
+  background-color: white;
+}
+/* line 224, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .posts ul li:before {
+  display: block;
+  content: '';
+  padding-top: 100%;
+}
+/* line 229, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.user .posts ul li div {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* line 242, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.profile_edit {
+  background-color: white;
+}
+/* line 244, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.profile_edit form {
+  padding: 20px;
+}
+/* line 246, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.profile_edit form label {
+  display: inline-block;
+  width: 150px;
+}
+/* line 250, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.profile_edit form input[type="text"] {
+  width: 500px;
+  height: 30px;
+  font-size: 15px;
+  padding: 8px;
+}
+/* line 256, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.profile_edit form textarea {
+  width: 500px;
+  height: 30px;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+/* line 263, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.profile_edit .field {
+  margin-bottom: 15px;
+}
+/* line 266, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.profile_edit .button_wrap {
+  text-align: center;
+}
+/* line 269, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.profile_edit .button {
+  background-color: #0097EF;
+  color: white;
+  border: 1px solid #008de0;
+  border-radius: 3px;
+  font-size: 13px;
+  padding: 8px 12px;
+  text-decoration: none;
+  opacity: 0.9;
+  cursor: pointer;
+}
+/* line 279, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.profile_edit .button:hover {
+  opacity: 1;
+}
+
+/* line 286, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.users {
+  background-color: white;
+}
+/* line 288, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.users li {
+  border-bottom: 1px solid #eee;
+  position: relative;
+  padding: 15px;
+  padding-left: 50px;
+}
+/* line 293, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.users li:last-child {
+  border-bottom: 0;
+}
+/* line 296, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.users li .name {
+  font-weight: bold;
+  font-size: 14px;
+}
+/* line 301, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.users .button {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background-color: #0097EF;
+  color: white;
+  border-radius: 3px;
+  font-size: 13px;
+  padding: 8px 12px;
+  text-decoration: none;
+  opacity: 0.9;
+  cursor: pointer;
+}
+/* line 313, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.users .button:hover {
+  opacity: 1;
+}
+/* line 317, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.users .image {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+/* line 328, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.sign_up, .sign_in {
+  background: url(/assets/171203IMGL0144_TP_V-2904a16f817da22861e72f6e5afe1bc1b7199ad59ed9f71b719dd24457b5a919.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+/* line 337, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.sign_up .contents, .sign_in .contents {
+  position: absolute;
+  top: 20%;
+  left: 55%;
+  height: 600px;
+  width: 400px;
+}
+/* line 344, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.sign_up h1, .sign_in h1 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: cursive;
+}
+/* line 350, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.sign_up p, .sign_in p {
+  font-size: 16px;
+}
+/* line 353, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.sign_up form, .sign_in form {
+  margin-top: 15px;
+}
+/* line 355, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.sign_up form input[type="text"], .sign_up form input[type="email"], .sign_up form input[type="password"], .sign_in form input[type="text"], .sign_in form input[type="email"], .sign_in form input[type="password"] {
+  width: 100%;
+  display: block;
+  height: 36px;
+  box-sizing: border-box;
+  font-size: 16px;
+  border: 0;
+  padding: 3px 10px;
+}
+/* line 364, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.sign_up form .field, .sign_in form .field {
+  margin-bottom: 8px;
+  border-radius: 3px;
+  border: 1px solid #eee;
+}
+/* line 369, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.sign_up form button, .sign_in form button {
+  background-color: #ccc;
+  display: block;
+  color: white;
+  border: 1px solid #bfbfbf;
+  border-radius: 3px;
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+/* line 380, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.sign_up form button:hover, .sign_in form button:hover {
+  background-color: #c4c4c4;
+}
+/* line 385, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.sign_up .sign_up_form, .sign_up .sign_in_form, .sign_in .sign_up_form, .sign_in .sign_in_form {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 20px 30px;
+  margin-bottom: 20px;
+}
+/* line 390, /home/ubuntu/workspace/photo/app/assets/stylesheets/users.scss */
+.sign_up .sign_in_link, .sign_up .sign_up_link, .sign_in .sign_in_link, .sign_in .sign_up_link {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 15px;
+  text-align: center;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+

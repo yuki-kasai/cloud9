@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :posts
 
   # データの保存前に、パスワードを暗号化するメソッド(convert_password)を実行するよう設定
-  before_save :convert_password
+  before_create :convert_password
 
   # パスワードを暗号化するインスタンスメソッド
   #   クラス名.クラスメソッド名（クラスからしか呼び出せない）
@@ -24,4 +24,13 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
+
+  # プロフィール画像がなかったらダミー画像を指定する
+  def image_url(user)
+    if user.image.blank?
+      'https://dummyimage.com/200x200/000/fff'
+    else
+      "/users/#{user.image}"
+    end
+  end
 end

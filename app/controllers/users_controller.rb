@@ -9,6 +9,9 @@ class UsersController < ApplicationController
   def top
     @posts = Post.all.order('id desc')
   end
+  
+  
+
 
   # ユーザー登録ページ
   def sign_up
@@ -100,13 +103,13 @@ class UsersController < ApplicationController
     redirect_to(sign_in_path) && return
   end
 
-  private
-
-  def user_params
-    # puts "#"*30
-    # puts params[:user]
-    # puts "#"*30
-    params.require(:user).permit(:name, :email, :password)
+  def show
+pry
+image_url(@user)
+    # 該当するユーザのidを取得
+    @user = User.find(params[:id])
+    # 紐付いているからidのみ取得するだけでいい
+    @posts = Post.where(user_id: @user.id)
   end
 
   # プロフィール編集ページ
@@ -116,6 +119,37 @@ class UsersController < ApplicationController
 
   # プロフィール更新処理
   def update
-    # ここに処理を実装
+    @user = User.new(user_params)
+    upload_file = params[:user][:image]
+
+    # 画像があった場合に代入
+    if upload_file.present?
+      # 画像のファイル名取得
+      upload_file_name = upload_file.original_filename
+
+      output_path = output_dir + upload_file_name
+
+      File.open(output_path, 'w+b') do |f|
+        f.write(upload_file.read)
+      end
+
+      # データベースに更新
+      current_user.update(user_params.merge(image: upload_file.original_filename))
+
+    else
+      current_user.update(user_params)
+
+    end
+    redirect_to profile_path(current_user)
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :comment)
+  end
+
+  def output_dir
+    Rails.root.join('public', 'users')
   end
 end

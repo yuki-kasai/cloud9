@@ -1,25 +1,25 @@
 <div class="profile_edit container">
-  <form method="post" action="#">
+  <%= form_for @user, url: profile_edit_path, method: :post do |f| %>
     <div class="field">
-      <label for="user_name">名前</label>
-      <input type="text" name="user_name" placeholder="名前を入力して下さい。">
+      <%= f.label :name, "名前" %>
+      <%= f.text_field :name, placeholder: "名前を入力して下さい。" %>
     </div>
     <div class="field">
-      <label for="user_email">メールアドレス</label>
-      <input type="text" name="user_email" placeholder="メールアドレスを入力して下さい。">
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.text_field :email, placeholder: "メールアドレスを入力して下さい。" %>
     </div>
     <div class="field">
-      <label for="user_comment">コメント</label>
-      <input type="text" name="user_comment" placeholder="自己紹介など">
+      <%= f.label :comment, "コメント" %>
+      <%= f.text_field :comment, placeholder: "自己紹介など" %>
     </div>
     <div class="field">
       <label>プロフィール画像</label>
       <div class="file_wrap">
-        <input type="file" name="image" />
+        <%= f.file_field :image %>
       </div>
     </div>
     <div class="button_wrap">
       <input type="submit" value="保存する" class="button">
     </div>
-  </form>
+  <% end %>
 </div>
