@@ -8,10 +8,16 @@ class UsersController < ApplicationController
 
   def top
     @posts = Post.all.order('id desc')
+    if params[:word].present?
+    # キーワード検索処理
+      @posts = Post.where("caption like ?", "%#{params[:word]}%").order("id desc")
+    else
+    # 一覧表示処理
+      @posts = Post.all.order("id desc")
+    end
+    
   end
   
-  
-
 
   # ユーザー登録ページ
   def sign_up
@@ -104,8 +110,7 @@ class UsersController < ApplicationController
   end
 
   def show
-pry
-image_url(@user)
+
     # 該当するユーザのidを取得
     @user = User.find(params[:id])
     # 紐付いているからidのみ取得するだけでいい

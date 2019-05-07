@@ -18,29 +18,33 @@
       <!-- テキスト部分 -->
       <div class="info">
         <div class="action">
-          <a href="#">
-            <i class="fa fa-heart-o"></i><!-- いいねを押してない時のハート -->
-          </a>
+          
+    
+          <!--いいねハート-->
+          <%= link_to like_post_path(post) do %>
+            <i class="fa <%= post.like_from?(current_user)? "fa-heart active" : "fa-heart-o" %>"></i>
+          <% end %>
+          
+          
           <label for="post-comment-">
             <i class="fa fa-comment-o"></i>
           </label>
-          <a href="#">
-            <i class="fa fa-close"></i>
-          </a>
-        </div>
-        
-        
-        <!--削除の×-->
-        <% if post.user_id == current_user.id %>
-          <%= link_to post_path(post), method: :delete do %>
-            <i class="fa fa-close"></i>
+          
+          <!--削除の×-->
+          <% if post.user_id == current_user.id %>
+            <%= link_to post_path(post), method: :delete do %>
+              <i class="fa fa-close"></i>
+            <% end %>
           <% end %>
-        <% end %>
-        
+        </div>
         
         <div class="like">
-          <p>いいね 3件</p>
+          
+          <p>いいね <%= post.post_likes.count %> 件</p>
+          
         </div>
+        
+        
         <!-- コメント部分 -->
         <div class="comment">
           <ul>
@@ -52,19 +56,22 @@
             </li>
             <% end %>
             <!-- 画像へのコメント -->
+            <% post.post_comments.each do |post_comment| %>
             <li>
-              <span class="user_name">田中一郎</span>
-              <span class="caption">こんにちは〜</span>
+              <span class="user_name"><%= post_comment.user.name %></span>
+              <span class="caption"><%= post_comment.comment %></span>
             </li>
+            <% end %>
           </ul>
           <!-- コメント入力部分 -->
           <div class="text_wrap">
-            <form method="post" action="#">
+      
+            <%= form_for post.post_comments.new, url: comment_post_path(post) do |f| %>
               <div class="field">
-                <input type="text" name="comment" id="post-comment-" placeholder="コメントを入力">
-                <input type="submit" value="送信">
+                <%= f.text_field :comment, id: "post-comment-#{post.id}", placeholder: "コメントを入力" %>
+                <%= f.submit "送信" %>
               </div>
-            </form>
+            <% end %>
           </div>
         </div>
       </div>

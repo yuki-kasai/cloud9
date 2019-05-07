@@ -42,15 +42,46 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     
-      if @post.destroy
-        # 成功
-        flash[:success] = '投稿削除しました'
-      else
-        # 失敗
-        flash[:danger] = '投稿削除に失敗しました'
-      end
-      
+    if @post.destroy
+      # 成功
+      flash[:success] = '投稿削除しました'
+    else
+      # 失敗
+      flash[:danger] = '投稿削除に失敗しました'
+    end
+    redirect_to(top_path)
   end
+  
+  # いいね処理
+  def like
+    @post = Post.find(params[:id])
+    
+    if PostLike.exists?(post_id: @post.id, user_id: current_user.id)
+      # いいねを削除
+      PostLike.find_by(post_id: @post.id, user_id: current_user.id).destroy
+    else
+      # いいねを登録
+      PostLike.create(post_id: @post.id, user_id: current_user.id)
+    end
+    redirect_to(top_path)
+  end
+  
+  # コメント投稿処理
+  def comment
+    params[:id]
+    @post = Post.find(params[:id])
+    
+    # コメント保存
+    @post.post_comments.create(post_comment_params)
+    
+    redirect_to(top_path)
+  end
+  
+  # コメント用パラメータを取得
+  def post_comment_params
+    params.require(:post_comment).permit(:comment).merge(user_id: current_user.id)
+  end
+  
   private
 
   # mergeで画像と説明文以外にidも必要なので追加するメソッド

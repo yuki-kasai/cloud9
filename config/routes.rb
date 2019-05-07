@@ -31,10 +31,17 @@ Rails.application.routes.draw do
   get '/sign_out', to: 'users#sign_out', as: :sign_out
 
   post '/profile/edit', to: 'users#update'
+  
+  # いいね機能
+  # get '/posts/(:id)/like', to: 'posts#like'
 
   # resourcesメソッドを使った指定
-  resources :posts
-  # 　resources :posts do
-  #     resources :articles, :comments
-  #   end
+  resources :posts do
+    member do
+      # いいね
+      get 'like', to: 'posts#like', as: :like
+      # コメント投稿
+      post 'comment', to: 'posts#comment', as: :comment
+    end
+  end
 end

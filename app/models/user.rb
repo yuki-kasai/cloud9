@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # リレーション
   has_many :posts
+  has_many :post_likes
+  has_many :post_comments
 
   # データの保存前に、パスワードを暗号化するメソッド(convert_password)を実行するよう設定
   before_create :convert_password
@@ -25,12 +27,5 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
 
-  # プロフィール画像がなかったらダミー画像を指定する
-  def image_url(user)
-    if user.image.blank?
-      'https://dummyimage.com/200x200/000/fff'
-    else
-      "/users/#{user.image}"
-    end
-  end
+
 end

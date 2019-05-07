@@ -31,4 +31,14 @@ module UsersHelper
   def redirect_to_top_if_signed_in
     redirect_to top_path if user_signed_in?
   end
+  
+  # プロフィール画像がなかったらダミー画像を指定する
+  def image_url(user)
+    if user.image.blank?
+      "https://dummyimage.com/200x200/000/fff"
+    else
+      "/users/#{user.image}"
+    end
+  end
+  
 end
