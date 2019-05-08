@@ -1,6 +1,7 @@
 <div class="top container">
   <% if @posts.any? %>
   <ul class="posts">
+    <div><%= page_entries_info @posts %></div>
     <% @posts.each do |post| %>
     <!-- 投稿画像１つめ -->
     <li>
@@ -77,37 +78,27 @@
       </div>
     </li>
     <% end %>
+    <div><%= paginate @posts %></div>
   </ul>
   <% else %>
   <p class="empty">投稿がありません。</p>
   <% end %>
   
   <!-- おすすめユーザー -->
+  <% if @recommends.any? %>
   <div class="recommend">
     <h2>おすすめ</h2>
     <ul>
+      <% @recommends.each do |user| %>
       <li>
-        <a href="#">
-          <img src="https://dummyimage.com/200/f6d580/fff">
-          <p>田中一郎</p>
-        </a>
-        <a class="button" href="#">フォローする</a>
+        <%= link_to profile_path(user) do %>
+          <img src="<%= image_url(user) %>">
+          <p><%= user.name %></p>
+        <% end %>
+        <%= link_to "フォローする", follow_path(user), class: "button" %>
       </li>
-      <li>
-        <a href="#">
-          <img src="https://dummyimage.com/200/6eb7db/fff">
-            <p>山田次郎</p>
-        </a>
-        <a class="button" href="#">フォローする</a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="https://dummyimage.com/200/cfe283/fff">
-          <p>山中三郎</p>
-        </a>
-        <a class="button" href="#">フォローする</a>
-      </li>
-      
+      <% end %>
     </ul>
   </div>
+  <% end %>
 </div>

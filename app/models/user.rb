@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :post_likes
   has_many :post_comments
+  has_many :follows
+  has_many :followers, foreign_key: :follow_user_id, class_name: "Follow"
 
   # データの保存前に、パスワードを暗号化するメソッド(convert_password)を実行するよう設定
   before_create :convert_password
@@ -26,6 +28,12 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
+
+  # ユーザーがフォローされているかどうかを判定
+  def followed_by?(user)
+    user.follows.exists?(follow_user_id: self.id)
+  end
+
 
 
 end

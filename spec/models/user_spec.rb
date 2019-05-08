@@ -7,4 +7,6 @@ RSpec.describe User, type: :model do
       expect(post.user.class).to eq User
     end
   end
+  
+  
 end

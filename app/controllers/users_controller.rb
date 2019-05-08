@@ -13,9 +13,11 @@ class UsersController < ApplicationController
       @posts = Post.where("caption like ?", "%#{params[:word]}%").order("id desc")
     else
     # 一覧表示処理
-      @posts = Post.all.order("id desc")
+      @posts = Post.all.order("id desc").page(params[:page])
     end
     
+    @recommends = User.where.not(id: current_user.id).where.not(id: current_user.follows.pluck(:follow_user_id)).limit(3)
+ 
   end
   
 
@@ -147,6 +149,40 @@ class UsersController < ApplicationController
     end
     redirect_to profile_path(current_user)
   end
+  
+  # フォロー処理
+  def follow
+    @user = User.find(params[:id])
+    
+    if Follow.exists?(user_id: current_user.id, follow_user_id: @user.id)
+      # フォローを解除
+      Follow.find_by(user_id: current_user.id, follow_user_id: @user.id).destroy
+    else
+      # フォローする
+      Follow.create(user_id: current_user.id, follow_user_id: @user.id)
+    end
+    redirect_back(fallback_location: top_path, notice: "フォローを更新しました。")
+  end
+  
+  # フォローリスト
+  def follow_list
+      # プロフィール情報の取得
+      @user = User.find(params[:id])
+      @users = User.where(id: Follow.where(user_id: @user.id).pluck(:follow_user_id))
+  end
+  
+  # フォローリスト
+  def follower_list
+      # プロフィール情報の取得
+      @user = User.find(params[:id])
+      # ここに処理を実装
+      # followsテーブルから、フォローしているユーザーIDを取得する
+      # follow_user_idはされる側 user_idはする側
+      ids = Follow.where(follow_user_id: @user.id).pluck(:user_id)
+      # usersテーブルから、1で取得したユーザーIDに紐づくユーザーの情報を取得する
+      @users = User.where(id: ids)
+  end
+  
 
   private
 

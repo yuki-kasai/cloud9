@@ -8,4 +8,7 @@ class Post < ApplicationRecord
   def like_from?(user)
     self.post_likes.exists?(user_id: user.id)
   end
+  
+  # 1ページあたり3項目表示
+  paginates_per 2
 end

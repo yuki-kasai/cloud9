@@ -32,8 +32,9 @@ Rails.application.routes.draw do
 
   post '/profile/edit', to: 'users#update'
   
-  # いいね機能
-  # get '/posts/(:id)/like', to: 'posts#like'
+  # フォロー機能
+  get '/follow/(:id)', to: 'users#follow', as: :follow
+  
 
   # resourcesメソッドを使った指定
   resources :posts do
