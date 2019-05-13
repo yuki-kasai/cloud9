@@ -8,16 +8,18 @@ class UsersController < ApplicationController
 
   def top
     @posts = Post.all.order('id desc')
+
     if params[:word].present?
     # キーワード検索処理
       @posts = Post.where("caption like ?", "%#{params[:word]}%").order("id desc")
+      
     else
     # 一覧表示処理
       @posts = Post.all.order("id desc").page(params[:page])
     end
     
     @recommends = User.where.not(id: current_user.id).where.not(id: current_user.follows.pluck(:follow_user_id)).limit(3)
- 
+    redirect_to action: 'top'
   end
   
 

@@ -1,7 +1,9 @@
 <div class="top container">
   <% if @posts.any? %>
   <ul class="posts">
+    
     <div><%= page_entries_info @posts %></div>
+    
     <% @posts.each do |post| %>
     <!-- 投稿画像１つめ -->
     <li>
