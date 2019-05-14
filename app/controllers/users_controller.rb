@@ -7,11 +7,11 @@ class UsersController < ApplicationController
   before_action :redirect_to_top_if_signed_in, only: %i[sign_up sign_in]
 
   def top
-    @posts = Post.all.order('id desc')
+    # @posts = Post.all.order('id desc')
 
     if params[:word].present?
     # キーワード検索処理
-      @posts = Post.where("caption like ?", "%#{params[:word]}%").order("id desc")
+      @posts = Post.where("caption like ?", "%#{params[:word]}%").order("id desc").page(params[:page])
       
     else
     # 一覧表示処理
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     end
     
     @recommends = User.where.not(id: current_user.id).where.not(id: current_user.follows.pluck(:follow_user_id)).limit(3)
-    redirect_to action: 'top'
+    # redirect_to action: 'top'
   end
   
 
@@ -85,6 +85,7 @@ class UsersController < ApplicationController
       redirect_to(top_path) && return
     else
       flash[:danger] = 'サインインに失敗しました。'
+      redirect_to(sign_in_path) && return
     end
 
     # フォームのデータを受け取る
