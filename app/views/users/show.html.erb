@@ -7,7 +7,7 @@
       <% @posts.each do |post| %>
         <% post.post_images.each do |post_image| %>
         <li>
-          <div style="background: url('<%= "/images/#{post_image.name}" %>'); background-repeat: no-repeat; background-position: 50%;"></div>
+          <div style="background: url('<%= "/images/#{post_image.name}" %>'); background-repeat: no-repeat; background-size: cover;"></div>
         </li>
         <% end %>
       <% end %>

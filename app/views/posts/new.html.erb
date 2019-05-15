@@ -2,7 +2,7 @@
 <!--<p>Find me in app/views/posts/new.html.erb</p>-->
 <div class="container">
   <div class="new_post_wrap">
-    <h1>新規Photo投稿</h1>
+    <h1>新規art投稿</h1>
     <%= form_for @post do |f| %>
       <!-- ファイル選択ボタン -->
       <div class="file_wrap">
@@ -10,7 +10,7 @@
       </div>
       <!-- 説明文 -->
       <div class="textarea_wrap">
-        <%= f.text_area :caption, placeholder: "写真に対する説明文を入力" %>
+        <%= f.text_area :caption, placeholder: "artに対する題名や説明文を入力" %>
       </div>
       <!-- 送信ボタン -->
       <div class="btn_wrap">
