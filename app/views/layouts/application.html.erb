@@ -13,10 +13,9 @@
     <header class="global_header">
       <!-- ロゴ -->
       <div class="icon">
-        
       </div>
       <%= link_to top_path do %>
-        <h1 class="logo">artshare</h1>
+        <h1 class="logo" title="トップ">artshare</h1>
       <% end %>
       
       <!-- 検索フォーム -->
@@ -28,19 +27,19 @@
         <li>
           <!-- サインアウト -->
           <%= link_to sign_out_path do %>
-            <i class="fa fa-sign-out"></i>
+            <i class="fa fa-sign-out" title="サインアウト"></i>
           <% end %>
         </li>
         <li>
           <!-- プロフィールページ -->
           <%= link_to profile_path(current_user) do %>  
-            <i class="fa fa-user-o"></i>
+            <i class="fa fa-user-o" title="プロフィール"></i>
           <% end %>
         </li>
         <li>
           <!-- 投稿 -->
           <%= link_to new_post_path do %>
-            <i class="fa fa-upload"></i>
+            <i class="fa fa-upload" title="新規投稿"></i>
           <% end %>
         </li>
       </ul>
